@@ -1,0 +1,272 @@
+body {
+    background-color: rgb(0, 19, 28);
+    color: white;
+    font-family: 'Tahoma', Verdana, Helvetica, sans-serif;
+}
+body {
+    margin: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    margin-bottom: 0px;
+    border-bottom: .5px solid #ffffff
+  }
+
+nav ul li a {
+    display: block;
+    padding: 10px 10px 10px 10px;
+    color: rgb(255, 255, 255);
+
+    font-size: 140%;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  nav ul li a:hover {
+    padding-left: 10px;
+    background-color: rgb(63, 191, 255);
+    color: rgb(0, 19, 28);
+  }
+
+.contactnav {
+    margin-bottom: 30px;
+}
+ .indexnav {
+    border-top: .5px solid #ffffff
+ }
+
+h1 {
+    font-size: 50px;
+    margin-right: 0px;
+}
+
+.hi {
+    margin-bottom: 0px;
+    font-size: 65px;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+    color: rgb(63, 191, 255);
+}
+
+.h3home {
+    text-align: center;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+figure img {
+    border-radius: 8px;
+}
+
+figure {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.projects {
+    width: 100%;
+    max-width: 500px;
+}
+
+.kesperpic {
+    width: 100%;
+    max-width: 500px;
+}
+
+.projects:hover{
+    border: 2px solid rgb(63, 191, 255);
+    padding: 4px;
+    width: 95%;
+}
+
+img.profile {
+    width: 230px;
+    height: 340px;
+    display: block;
+    border-radius: 100px;
+    margin: auto;
+}
+
+p {
+    font-weight:lighter;
+}
+
+.home {
+    text-align: center;
+}
+
+.minibio {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+a {
+    color: rgb(63, 191, 255);
+    text-decoration: none;
+}
+
+aside {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 60px;
+}
+
+.button {
+    background-color: rgb(63, 191, 255);
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgb(0, 19, 28);
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: rgb(0, 19, 28);
+    color: rgb(63, 191, 255);
+    border: 1px solid rgb(63, 191, 255)
+}
+
+.background {
+    display: block;
+    margin-top: 50px;
+    width: 100%;
+
+}
+
+.golf {
+    border: 1px solid rgb(63, 191, 255);
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.golf h4 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+.golf p {
+    margin-bottom: 20px;
+}
+
+.etsy {
+    border: 1px solid rgb(63, 191, 255);
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+.etsy h4 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.etsy p {
+    margin-bottom: 20px;
+}
+
+.citation {
+    font-size: 10px;
+}
+
+.email {
+    display: block;
+    text-align: center;
+    background-color: rgb(63, 191, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    color: rgb(0, 19, 28);
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.email:hover {
+    background-color: rgb(0, 19, 28);
+    color: rgb(63, 191, 255);
+    border: 1px solid rgb(63, 191, 255)
+}
+
+.busemail {
+    display: block;
+    text-align: center;
+    background-color: rgb(63, 191, 255);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    color: rgb(0, 19, 28);
+    font-weight: bold;
+}
+
+.busemail:hover {
+    background-color: rgb(0, 19, 28);
+    color: rgb(63, 191, 255);
+    border: 1px solid rgb(63, 191, 255)
+}
+
+.quicklinks:hover{
+    text-decoration: underline;
+}
+.quicklinks {
+    display:block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.general {
+    border: 1px solid rgb(63, 191, 255);
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.linkedin {
+    font-size: 25px;
+    border-radius: 8px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(0, 19, 28);
+    color: rgb(63, 191, 255);
+    border: 1px solid rgb(63, 191, 255);
+}
+
+.linkedin:hover {
+    background-color: rgb(63, 191, 255);
+    color: rgb(0, 19, 28);
+    border: 1px solid rgb(0, 19, 28)
+}
+
+.h32 {
+    margin-bottom: 5px;
+}
