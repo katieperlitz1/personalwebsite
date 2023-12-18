@@ -6,23 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Katie Perlitz</title>
-  <link rel="stylesheet" type="text/css" href="styles/site.css">
+  <link rel="stylesheet" type="text/css" href="styles/site2.css">
 </head>
 
 <body>
+    <header>
     <!-- Source: (original work) Katie Perlitz -->
     <picture>
         <img src="images/logo4.png" alt="">
     </picture>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li class="indexnav"><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="business-projects.html">Business & Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+            <li class="contactnav"><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="socials">
+            <picture class="instagram">
+                <a href="https://www.instagram.com/kesperdesign/"><img src="images/instagram-icon2.png" alt="Instagram"></a>
+            </picture>
+            <picture class="linkedin">
+                <a href="https://www.linkedin.com/in/katie-perlitz-7678b5214/"><img src="images/linkedin-icon3.png" alt="LinkedIn"></a>
+            </picture>
+            <picture class="behance">
+                <a href="https://www.behance.net/katieperlitz"><img src="images/behance-icon3.png" alt="Behance"></a>
+            </picture>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
+    </header>
 
+    <main>
     <h2>Passions & Skills</h2>
 
     <h3 class="h32">Sports</h3>
@@ -102,6 +121,10 @@
         Source: <cite><a href="https://www.cornell.edu/about/locations/ithaca/">Cornell University</a></cite>
     </div>
 
+    </main>
+
+    <script src="scripts/jquery-3.7.1.js"></script>
+    <script src="scripts/hamburger.js"></script>
 </body>
 
 </html>
