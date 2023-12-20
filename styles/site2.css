@@ -180,6 +180,7 @@ button a{
     color:#fff;
     border-radius: 15px;
     box-shadow: 7px 7px 25px rgb(184, 201, 207);
+    margin-bottom:45px;
 }
 .whoami h3, .whatdoido h3{
     font-size: 30px;
@@ -268,7 +269,7 @@ button a{
 
 /* Business & Projects */
 
-.businesstitle,.aboutheader{
+.businesstitle,.aboutheader,.contactheader{
     text-align: center;
     line-height: 65px;
     font-size: 70px;
@@ -341,6 +342,45 @@ button a{
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
 }
+
+/* ABOUT ME */
+.aboutdiv h3{
+    font-size: 30px;
+    margin-bottom:15px;
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #3fcdd2, #0045b3);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+.notableclasses {
+    color:rgb(255, 255, 255);
+    font-size:18px;
+    margin-bottom:15px;
+    text-transform: uppercase;
+}
+
+.aboutdiv{
+    box-shadow: 5px 10px 15px rgba(0, 72, 108, 0.419);
+    border-radius: 15px;
+    padding:25px;
+    margin-bottom: 35px;
+}
+.notablediv{
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #46dfcb, #0057b3);
+    background-size: 100%;
+    color:#fff;
+    border-radius: 15px;
+    box-shadow: 7px 7px 25px rgb(184, 201, 207);
+    padding:20px;
+}
+.notablediv ul {
+    margin-left:30px;
+}
+
 
 @media (max-width:931px) {
     .hometext-pic {
@@ -428,6 +468,14 @@ button a{
     }
     .projectdescription{
         text-align: center;
+        width:80%;
+    }
+    .whitebutton {
+        margin-right: 15px;
+        margin-left:15px;
+    }
+    .projectpic {
+        width:100%;
     }
     
 }
