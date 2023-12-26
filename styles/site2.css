@@ -193,7 +193,7 @@ button a{
     margin:15px;
 }
 
-.whitebutton, .whitebutton2 {
+.whitebutton, .whitebutton2{
     background: #fff;
     padding-left:25px;
     padding-right:25px;
@@ -381,6 +381,59 @@ button a{
     margin-left:30px;
 }
 
+/* CONTACT */
+
+.container{
+    /* display:flex; */
+    width:70%;
+    align-items:center;
+    justify-content: center;
+    margin:auto;
+}
+form {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin:0;
+    gap:10px;
+    
+}
+form input, form textarea{
+    border:0;
+    align-items:center;
+    padding:15px;
+    width:100%;
+    box-shadow: 7px 7px 5px rgb(213, 226, 230);
+    border-radius: 10px;
+}
+form button{
+    margin-top:5px;
+    width:30%;
+    font-size:15px;
+    background-color: #ffffff;
+    background-image: linear-gradient(45deg, #41c6d2, #0f87be);
+    background-size: 100%;
+    border: 0;
+    padding:10px;
+    border-radius:15px;
+    color:white;
+    text-transform: uppercase;
+    font-weight:700;
+    box-shadow: 7px 7px 15px rgb(213, 226, 230);
+}
+form button:hover{
+    background-color: white;
+    background-image: none;
+    color:black;
+}
+form h3{
+    text-transform: uppercase;
+    flex-grow:1;
+    margin-bottom:10px;
+    font-size: 25px;
+    margin-top:10px;
+}
+
 
 @media (max-width:931px) {
     .hometext-pic {
@@ -479,3 +532,19 @@ button a{
     }
     
 }
+
+.hidden {
+    opacity: 0;
+    filter:blur(0);
+    transform: translateX(-40%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter:blur(0);
+    transform: translateX(0);
+    transition: all 1s;
+}
+
+
