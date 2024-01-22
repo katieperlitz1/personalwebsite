@@ -445,6 +445,11 @@ form h3{
     max-width: 800px;
     margin-bottom:30px;
 }
+footer {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 11px;
+}
 
 
 @media (max-width:931px) {
