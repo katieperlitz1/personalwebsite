@@ -285,10 +285,10 @@ button a{
 
 .projectheader {
     text-transform: uppercase;
-    flex-grow:1;
     margin-bottom:10px;
     font-size: 30px;
     margin-top:10px;
+    max-width: 500px;
 }
 .projectpic{
     display:block;
@@ -302,20 +302,23 @@ button a{
     display:flex;
     flex-direction: row;
     gap:40px;
+    margin-left:auto;
     margin-bottom:65px;
     z-index: 1;
 }
 .projectdiv figure{
+    flex-grow:1;
     width:70%;
     align-items: right;
 }
 .projectdescription {
-    width:50%;
+    flex-grow:1;
+    width:70%;
     margin-bottom:40px;
-    max-width: 400px;
 }
 .description{
     margin:0;
+    max-width:500px;
 }
 .date{
     font-size: 20px;
@@ -463,6 +466,12 @@ form h3{
         text-align: center;
         margin:auto;
     }
+    .projectheader{
+        max-width:none;
+    }
+    .description {
+        max-width:none;
+    }
 }
 @media (max-width:792px) {
     .homebelow {
@@ -530,7 +539,7 @@ form h3{
     }
     .projectdescription{
         text-align: center;
-        width:80%;
+        width:90%;
     }
     .whitebutton {
         margin-right: 15px;
@@ -556,6 +565,9 @@ form h3{
     }
     .aboutdiv h3 {
         font-size: 25px;
+    }
+    .projectdiv figure {
+        width:90%;
     }
 }
 
