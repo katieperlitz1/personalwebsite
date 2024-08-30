@@ -315,6 +315,7 @@ button a{
     flex-grow:1;
     width:70%;
     margin-bottom:40px;
+    margin-right:25px;
 }
 .description{
     margin:0;
@@ -545,10 +546,12 @@ footer {
     .projectdescription{
         text-align: center;
         width:90%;
+        margin-right:0px;
     }
     .whitebutton {
         margin-right: 15px;
         margin-left:15px;
+        margin-bottom:10px;
     }
     .projectpic {
         width:100%;
@@ -573,6 +576,9 @@ footer {
     }
     .projectdiv figure {
         width:90%;
+    }
+    .miniprojects {
+        font-size:40px
     }
 }
 
