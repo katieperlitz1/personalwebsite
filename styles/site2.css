@@ -578,7 +578,10 @@ footer {
         width:90%;
     }
     .miniprojects {
-        font-size:40px
+        font-size:35px
+    }
+    .projectheader {
+        font-size:25px;
     }
 }
 
