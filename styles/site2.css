@@ -212,6 +212,8 @@ button a{
     cursor: pointer;
     outline: none;
     margin-left:0;
+    display: inline-block; 
+    position: relative;
 }
 .whitebutton a, .whitebutton2 a{
     margin:auto;
@@ -225,6 +227,7 @@ button a{
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
+    
 }
   
 .whitebutton:hover , .whitebutton2:hover{
@@ -239,8 +242,8 @@ button a{
     background-color:white; 
     color:white;
     background-image:none;
-
 }
+
 .whitebutton2{
     margin-bottom:10px;
 }
@@ -606,3 +609,4 @@ footer {
     text-transform: uppercase;
 
 }
+
