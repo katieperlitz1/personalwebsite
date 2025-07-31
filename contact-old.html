@@ -51,31 +51,63 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .fun-cursor {
+      cursor: none;
+    }
+    .cursor-dot {
+      width: 24px;
+      height: 24px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 100%);
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+      box-shadow: 
+        0 0 15px rgba(255,255,255,0.4),
+        inset 0 0 15px rgba(255,255,255,0.2);
+      transition: all 0.15s ease-out;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+    .cursor-dot.hover {
+      width: 36px;
+      height: 36px;
+      background: radial-gradient(circle, rgba(0,69,179,0.4) 0%, rgba(30,136,229,0.3) 60%, rgba(66,165,245,0.2) 100%);
+      border: 2px solid rgba(0,69,179,0.6);
+      box-shadow: 
+        0 0 25px rgba(0,69,179,0.5),
+        inset 0 0 25px rgba(0,69,179,0.2);
+    }
+  </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 font-inter text-gray-800">
+<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 font-inter text-gray-800 fun-cursor">
+    <div class="cursor-dot" id="cursor-dot"></div>
     <header class="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <!-- Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <ul class="flex items-center space-x-8">
-                        <li><a href="index-tailwind.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Home</a></li>
-                        <li><a href="about-tailwind.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">About Me</a></li>
-                        <li><a href="business-projects-tailwind.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Business & Projects</a></li>
-                        <li><a href="contact-tailwind.html" class="text-primary-blue font-semibold uppercase tracking-wide text-sm border-b-2 border-primary-blue">Contact</a></li>
+                        <li><a href="index.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Home</a></li>
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">About Me</a></li>
+                        <li><a href="business-projects.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Business & Projects</a></li>
+                        <li><a href="contact.html" class="text-primary-blue font-semibold uppercase tracking-wide text-sm border-b-2 border-primary-blue">Contact</a></li>
                     </ul>
                 </nav>
                 
                 <!-- Social Icons -->
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
                     <a href="https://www.instagram.com/kesperdesign/" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
                         <img src="images/instagram-icon2.png" alt="Instagram" class="w-5 h-5">
                     </a>
                     <a href="https://www.linkedin.com/in/katie-perlitz-7678b5214/" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
                         <img src="images/linkedin-icon3.png" alt="LinkedIn" class="w-5 h-5">
                     </a>
-                    <a href="https://www.behance.net/katieperlitz" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 flex items-center justify-center">
+                    <a href="https://www.behance.net/katieperlitz" class="p-2 mt-1 hover:bg-gray-100 rounded-full transition-colors duration-200 flex items-center justify-center">
                         <img src="images/behance-icon3.png" alt="Behance" class="w-5 h-5">
                     </a>
                 </div>
@@ -94,10 +126,10 @@
             <div class="md:hidden mobile-menu hidden" id="mobile-menu">
                 <div class="py-4 border-t border-gray-200">
                     <ul class="space-y-4">
-                        <li><a href="index-tailwind.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Home</a></li>
-                        <li><a href="about-tailwind.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">About Me</a></li>
-                        <li><a href="business-projects-tailwind.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Business & Projects</a></li>
-                        <li><a href="contact-tailwind.html" class="block text-primary-blue font-semibold uppercase tracking-wide text-sm py-2 border-l-4 border-primary-blue pl-2">Contact</a></li>
+                        <li><a href="index.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Home</a></li>
+                        <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">About Me</a></li>
+                        <li><a href="business-projects.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Business & Projects</a></li>
+                        <li><a href="contact.html" class="block text-primary-blue font-semibold uppercase tracking-wide text-sm py-2 border-l-4 border-primary-blue pl-2">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,15 +140,16 @@
         <!-- Hero Section -->
         <div class="text-center mb-20 animate-fade-in">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary-blue via-secondary-blue to-accent-blue bg-clip-text text-transparent animate-gradient">
-                Let's Connect
+                Let's Connect!
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-                I'm always excited to hear about new opportunities, collaborations, or just chat about design and technology
+                I'm always excited to hear about new opportunities, collaborations, or just chat about design and tech. 
             </p>
+            <p class="text-md md:text-sm mt-3 text-gray-600 max-w-3xl mx-auto">Have any of the same interests as me? Not kidding -- would love to video chat or grab coffee any day of the week.</p>
         </div>
 
         <!-- Contact Form -->
-        <div class="max-w-2xl mx-auto mb-20">
+        <!-- <div class="max-w-2xl mx-auto mb-20">
             <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 animate-fade-in">
                 <h2 class="text-3xl font-bold text-primary-blue mb-8 text-center">Send Me a Message</h2>
                 
@@ -154,7 +187,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
 
         <!-- Contact Information -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -166,21 +199,19 @@
                     </svg>
                 </div>
                 <h3 class="text-xl font-bold text-primary-blue mb-3">Email</h3>
-                <p class="text-gray-600 mb-4">Perfect for project inquiries and collaborations</p>
+                <p class="text-gray-600 mb-4">For formalities, jobs, freelance work, or just saying hi :)</p>
                 <a href="mailto:katie.perlitz@example.com" class="text-accent-blue font-semibold hover:text-primary-blue transition-colors duration-200">
-                    katie.perlitz@example.com
+                    katieperlitz@gmail.com
                 </a>
             </div>
 
             <!-- Social Media -->
             <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in">
                 <div class="w-16 h-16 bg-secondary-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2"></path>
-                    </svg>
+                    <img src="images/instagram-icon.webp" class="w-8 h-8">
                 </div>
                 <h3 class="text-xl font-bold text-primary-blue mb-3">Social Media</h3>
-                <p class="text-gray-600 mb-4">Follow my work and stay updated</p>
+                <p class="text-gray-600 mb-4">Follow my design work and stay up to date with projects</p>
                 <div class="space-y-2">
                     <a href="https://www.instagram.com/kesperdesign/" class="block text-accent-blue font-semibold hover:text-primary-blue transition-colors duration-200">
                         @kesperdesign
@@ -194,11 +225,9 @@
             <!-- Portfolio -->
             <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 text-center shadow-lg border border-white/50 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-fade-in">
                 <div class="w-16 h-16 bg-accent-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                    </svg>
+                    <img src="images/behance-icon.png" class="w-8 h-8">
                 </div>
-                <h3 class="text-xl font-bold text-primary-blue mb-3">Portfolio</h3>
+                <h3 class="text-xl font-bold text-primary-blue mb-3">Behance Portfolio</h3>
                 <p class="text-gray-600 mb-4">View my latest work and projects</p>
                 <a href="https://www.behance.net/katieperlitz" class="text-accent-blue font-semibold hover:text-primary-blue transition-colors duration-200">
                     Behance Portfolio
@@ -207,7 +236,7 @@
         </div>
 
         <!-- What I'm Looking For -->
-        <div class="mb-20">
+        <!-- <div class="mb-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary-blue via-secondary-blue to-accent-blue bg-clip-text text-transparent animate-gradient">
                 What I'm Looking For
             </h2>
@@ -233,10 +262,10 @@
                     <p class="text-gray-600 text-sm">Connecting with fellow creators and tech enthusiasts</p>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Response Time -->
-        <div class="text-center bg-white/70 backdrop-blur-sm rounded-2xl p-12 shadow-lg border border-white/50 animate-fade-in">
+        <!-- <div class="text-center bg-white/70 backdrop-blur-sm rounded-2xl p-12 shadow-lg border border-white/50 animate-fade-in">
             <h2 class="text-3xl md:text-4xl font-bold text-primary-blue mb-6">Quick Response</h2>
             <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
                 I typically respond to all messages within 24 hours. For urgent inquiries, 
@@ -256,7 +285,7 @@
                     <div class="text-gray-600 text-sm">Professional</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
     <footer class="text-center py-8 text-gray-500 text-sm border-t border-gray-200 mt-16">
@@ -329,6 +358,49 @@
             // Add form submission logic here
             alert('Thank you for your message! I\'ll get back to you soon.');
         });
+
+        // Custom cursor functionality
+        const cursorDot = document.getElementById('cursor-dot');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        
+        // Check if device is mobile/touch
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Smooth cursor following with requestAnimationFrame - reduced delay
+            function updateCursor() {
+                cursorX += (mouseX - cursorX) * 0.3; // Increased from 0.1 to 0.3 for less delay
+                cursorY += (mouseY - cursorY) * 0.3;
+                
+                cursorDot.style.left = cursorX + 'px';
+                cursorDot.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            // Add hover effect only to clickable elements
+            const clickableElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
+            clickableElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorDot.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorDot.classList.remove('hover');
+                });
+            });
+        } else {
+            // Hide cursor on mobile
+            cursorDot.style.display = 'none';
+            // Remove fun-cursor class to show default cursor
+            document.body.classList.remove('fun-cursor');
+        }
     </script>
 </body>
 

@@ -4,298 +4,653 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Katie Perlitz</title>
-  <link rel="stylesheet" type="text/css" href="styles/site2.css">
+  <title>Katie Perlitz - Creative & Technical Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary-blue': '#0045b3',
+            'secondary-blue': '#1e88e5',
+            'accent-blue': '#42a5f5',
+            'light-blue': '#eaf6fa',
+            'dark-blue': '#002855',
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'float': 'float 3s ease-in-out infinite',
+            'gradient': 'gradient 3s ease infinite',
+            'color-pop': 'colorPop 0.6s ease-out',
+            'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            gradient: {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' }
+            },
+            colorPop: {
+              '0%': { filter: 'grayscale(100%)' },
+              '100%': { filter: 'grayscale(0%)' }
+            },
+            bounceGentle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-5px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .fun-cursor {
+      cursor: none;
+    }
+    .cursor-dot {
+      width: 24px;
+      height: 24px;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 100%);
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+      box-shadow: 
+        0 0 15px rgba(255,255,255,0.4),
+        inset 0 0 15px rgba(255,255,255,0.2);
+      transition: all 0.15s ease-out;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+    .cursor-dot.hover {
+      width: 36px;
+      height: 36px;
+      background: radial-gradient(circle, rgba(0,69,179,0.4) 0%, rgba(30,136,229,0.3) 60%, rgba(66,165,245,0.2) 100%);
+      border: 2px solid rgba(0,69,179,0.6);
+      box-shadow: 
+        0 0 25px rgba(0,69,179,0.5),
+        inset 0 0 25px rgba(0,69,179,0.2);
+    }
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .image-hover {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: grayscale(100%);
+    }
+    .card-hover:hover .image-hover {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+    .text-hover {
+      transition: all 0.4s ease;
+    }
+    .card-hover:hover .text-hover {
+      background: linear-gradient(135deg, #0045b3, #1e88e5, #42a5f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Disable hover effects on mobile */
+    @media (max-width: 768px) {
+      .card-hover:hover {
+        transform: none;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .card-hover:hover .image-hover {
+        filter: grayscale(0%);
+        transform: none;
+      }
+      .card-hover:hover .text-hover {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        background-clip: unset;
+        color: #0045b3;
+      }
+    }
+  </style>
 </head>
 
-<body>
-    <header>
-    <!-- Source: (original work) Katie Perlitz -->
-    <picture>
-        <img src="images/logo4.png" alt="">
-    </picture>
-    <nav>
-        <ul>
-            <li class="indexnav"><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="business-projects.html">Business & Projects</a></li>
-            <li class="contactnav"><a href="contact.html">Contact</a></li>
-        </ul>
-            <div class="socials">
-            <picture class="instagram">
-                <a href="https://www.instagram.com/kesperdesign/"><img src="images/instagram-icon2.png" alt="Instagram"></a>
-            </picture>
-            <picture class="linkedin">
-                <a href="https://www.linkedin.com/in/katie-perlitz-7678b5214/"><img src="images/linkedin-icon3.png" alt="LinkedIn"></a>
-            </picture>
-            <picture class="behance">
-                <a href="https://www.behance.net/katieperlitz"><img src="images/behance-icon3.png" alt="Behance"></a>
-            </picture>
+<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 font-inter text-gray-800 fun-cursor">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <header class="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <ul class="flex items-center space-x-8">
+                        <li><a href="index.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Home</a></li>
+                        <li><a href="about.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">About Me</a></li>
+                        <li><a href="business-projects.html" class="text-primary-blue font-semibold uppercase tracking-wide text-sm border-b-2 border-primary-blue">Business & Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Social Icons -->
+                <div class="flex items-center space-x-2">
+                    <a href="https://www.instagram.com/kesperdesign/" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
+                        <img src="images/instagram-icon2.png" alt="Instagram" class="w-5 h-5">
+                    </a>
+                    <a href="https://www.linkedin.com/in/katie-perlitz-7678b5214/" class="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
+                        <img src="images/linkedin-icon3.png" alt="LinkedIn" class="w-5 h-5">
+                    </a>
+                    <a href="https://www.behance.net/katieperlitz" class="p-2 mt-1 hover:bg-gray-100 rounded-full transition-colors duration-200 flex items-center justify-center">
+                        <img src="images/behance-icon3.png" alt="Behance" class="w-5 h-5">
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="hamburger p-2" id="hamburger">
+                        <span class="block w-6 h-0.5 bg-gray-600 mb-1 transition-all duration-300 origin-center"></span>
+                        <span class="block w-6 h-0.5 bg-gray-600 mb-1 transition-all duration-300 origin-center"></span>
+                        <span class="block w-6 h-0.5 bg-gray-600 transition-all duration-300 origin-center"></span>
+                    </button>
+                </div>
             </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="md:hidden mobile-menu hidden" id="mobile-menu">
+                <div class="py-4 border-t border-gray-200">
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Home</a></li>
+                        <li><a href="about.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">About Me</a></li>
+                        <li><a href="business-projects.html" class="block text-primary-blue font-semibold uppercase tracking-wide text-sm py-2 border-l-4 border-primary-blue pl-2">Business & Projects</a></li>
+                        <li><a href="contact.html" class="block text-gray-700 hover:text-primary-blue font-medium transition-colors duration-200 uppercase tracking-wide text-sm py-2">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-    </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Section Header -->
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-primary-blue via-secondary-blue to-accent-blue bg-clip-text text-transparent animate-gradient">
+            Creative & Entrepreneurship
+        </h2>
 
-    <h2 class="miniprojects">Creative & Entrepreneurship</h2>
+        <!-- Project Cards -->
+        <div class="space-y-16">
+            <!-- Kesper Design -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/kesperdesign.png" alt="Kesper Design" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Kesper Design</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">2020-Present</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Since 2020 I've been running my own graphic design business primarily through my 
+                            Instagram page, @kesperdesign. I've created over 500 designs for high school 
+                            athletes committing to college, graphics for sports teams and organizations, and 
+                            logos and YouTube thumbnails. I have been managing order requests, communicating with clients, and creating designs every day since 2020.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Photoshop, Business Management, Branding
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.instagram.com/kesperdesign/" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Instagram
+                            </a>
+                            <a href="https://www.behance.net/gallery/178884251/Kesper-Design-Committed-Edits-2023" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                2023 Commitments
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/kesperdesign.png" alt="Kesper Design">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Kesper Design</h3>
-            <h5 class="date">2020-Present</h5>
-            <p class="description">Since 2020 I've been running my own graphic design business primarily through my 
-                Instagram page, @kesperdesign. I've created over 500 designs for high school 
-                athletes committing to college, graphics for sports teams and organizations, and 
-                logos and YouTube thumbnails. I have been managing order requests, communicating with clients, and creating designs every day since 2020.</p>
-            <h5 class="skills">Skills: Photoshop, Business Management, Branding</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.instagram.com/kesperdesign/">Instagram</a></button>
-            <button class="whitebutton2"><a class="whitea" href="https://www.behance.net/gallery/178884251/Kesper-Design-Committed-Edits-2023">2023 Commitments</a></button>
+            <!-- Digital Template Shop -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/etsy.png" alt="Etsy" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Digital Template Shop</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Spring 2023-Present</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            I design and sell Canva and Photoshop templates on Etsy and my official website for teams to use as basic social 
+                            media graphics. These include schedules, player spotlights, Gameday announcements, 
+                            tryouts/event flyers, and other necessary promotional posts. Since starting my store in Spring 
+                            2023, I've become a top seller in the sports graphics niche, increased monthly revenue by 400% since August 2023, and sold to over 2000 teams.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: E-Commerce, SEO, Customer Relations, Digital Marketing
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://kesperdesign.etsy.com" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Etsy Shop
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GivNGo -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/givngo2.png" alt="GivNGo" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">GivNGo (Founder)</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Summer 2024</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            After learning React early in Summer 2024, I spent the final two months using my skills to develop a
+                            free resource library for sports graphic designers called GivNGo. I conducted user interviews with designers to find their pain points, and 
+                            launched the website at the end of August 2024. Coding the entire website from scratch, I learned Firebase (Firestore, Analytics, Databases), authenticating and
+                            signing up users, data fetching and filtering through an API, and UX/UI design techniques.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Product Design, React.js, Firebase, MUI, JavaScript
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://givngo.netlify.app/" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Website
+                            </a>
+                            <a href="https://github.com/katieperlitz1/givngo" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pixar Rebrand -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/pixar.jpg" alt="Pixar" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Pixar Rebrand Project</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Fall 2024</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            To learn Adobe Illustrator and Figma, I created a modern rebrand for Pixar, designing a bold, tech-inspired logo and redesigning their website. This passion project let me 
+                            explore my love for storytelling and design while learning new skills in branding, typography, and UX/UI design. 
+                            I wanted to give Pixar a fresh, updated look that still captures its playful spirit.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Logo Design, UX/UI Design, Branding, Adobe Illustrator, Figma
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://www.behance.net/gallery/215459863/Pixar-Logo-and-Website-Redesign" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Project Presentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRSN -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/brsn.jpg" alt="BRSN" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Big Red Sports Network</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Fall 2023-Present</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            I joined Cornell's Big Red Sports Network fall of 2023, doing graphic design for 
+                            their following on Instagram and X. I did designs for sports such as football, hockey, basketball, 
+                            field hockey, and wrestling, and loved working with other Cornell students passionate about creative sports media.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Graphic Design, Social Media
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://www.behance.net/gallery/186990637/Cornell-University-Fall-2023" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                BRSN Graphics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HHH Rebrand -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/hhh-rebrand.jpg" alt="HHH" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Big 4 HHH Lacrosse Club Rebrand</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">March 2024</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            I dove into branding, logo design, merchandise design and social media content with this rebrand project for a Philadephia Club Lacrosse Team.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Figma, Logo Design, Branding
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://www.behance.net/gallery/195618503/Big-4-HHH-Rebrand-Concept" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Rebrand Presentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Edits -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/1917.png" alt="Video Edits" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">After Effects Video Edits</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Summer 2023-Present</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            To get comfortable with Adobe After Effects, I pulled clips from my favorite action movies
+                            and edited them to music during Summer 2023. I learned the basics of keyframes, time markers, transitions, and combining multiple clips into one composition.
+                            I also created a short edit for FCA Maryland Lacrosse using similar techniques, and learned to animate my Photoshop graphics through a Cornell BRSN New Years video.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Adobe After Effects
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://vimeo.com/864967566?share=copy" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                My Favorite Action Scenes
+                            </a>
+                            <a href="https://vimeo.com/864966768?share=copy" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                FCA Edit
+                            </a>
+                            <a href="https://vimeo.com/905044530?share=copy" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                BRSN New Years Motion Graphic
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/etsy.png" alt="Etsy">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Digital Template Shop</h3>
-            <h5 class="date">Spring 2023-Present</h5>
-            <p class="description">I design and sell Canva and Photoshop templates on Etsy and my official website for teams to use as basic social 
-                media graphics. These include schedules, player spotlights, Gameday announcements, 
-                tryouts/event flyers, and other necessary promotional posts. Since starting my store in Spring 
-                2023, I've become a top seller in the sports graphics niche, increased monthly revenue by 400% since August 2023, and sold to over 2000 teams. My goal is to make high quality sports 
-                graphics accessible and easy for teams of all levels. Every day, I respond to customer requests and improve the design and marketing of my products.
-                </p>
-                <h5 class="skills">Skills: E-Commerce, SEO, Customer Relations, Digital Marketing</h5>
-            <button class="whitebutton"><a class="whitea" href="https://kesperdesign.etsy.com">Etsy Shop</a></button>
+        <!-- Technical Projects Section -->
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center my-16 bg-gradient-to-r from-primary-blue via-secondary-blue to-accent-blue bg-clip-text text-transparent animate-gradient">
+            Technical Projects
+        </h2>
+
+        <div class="space-y-16">
+            <!-- ReUse App -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/reuse.png" alt="ReUse" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">ReUse Ithaca App Design/Development</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Spring 2025</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            While on the Software Development team at Engineers Without Borders, 
+                            I helped design and build a mobile app for managing donations and inventory. I created the full UX/UI in Figma, 
+                            then learned React Native to implement key components. Our team followed a ticket-based workflow with weekly 
+                            meetings to align on progress and design consistency.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Figma, React Native
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://www.behance.net/gallery/225168519/ReUse-App-UI-Design" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                App UI Design
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ubicomp -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/ubicomp.png" alt="Ubicomp" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Web-App Sensor Data Visualization Tool</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Spring 2025</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            For my Ubiquitous Computing course, I led a semester-long project to build an open-source, 
+                            browser-based web app for real-time sensor data visualization. I contributed to the full stack using p5.js, 
+                            Node.js, and Python to stream data from Arduino-compatible sensors via Bluetooth, WiFi, or Serial. 
+                            The tool is designed to help Ubicomp researchers rapidly prototype and analyze sensor input without any 
+                            setup or coding required.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: JavaScript, Python, Arduino, Data Visualization
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://youtu.be/-YaN8vxHmMo" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                YouTube Demo
+                            </a>
+                            <a href="https://drive.google.com/file/d/1G9cNk5hWhUZb5NPf47Y1MqD6M6VoqSoL/view?usp=sharing" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                Project Proposal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jean Catalog -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/jeans.png" alt="Jean Catalog" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Jean Catalog Website</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Spring 2024</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            For my Design and Programming for the Web class, 
+                            I created an interactive, data-driven site via PHP and the MYSQL database for a jean shop in a two-person team. 
+                            I learned to process HTTP requests, dynamically render HTML, populate and store web 
+                            content in a relational database using SQL, and securely implement 
+                            login/logout sessions through server-side scripting.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: PHP, SQL, HTML, CSS, JavaScript
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://drive.google.com/file/d/1wN2uChr7kR6plpxOkqat5A1ZFbQ8wmFe/view?usp=sharing" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Project Zip
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORIE Report -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/oriereport.png" alt="ORIE Project" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">An Analysis on Flight Delays and Cancellations</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">Spring 2024</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            To answer questions and create predictions for flight delays in the US, I worked
+                            with three other group members to create a report from Kaggle's "Flight Delays and Cancellations" dataset. 
+                            I worked with Tableau and SQL to create initial visualizations such as average delays for each airline, and the breakdown of delay type and cause. 
+                            I then performed linear regression and forecasting in Python to create a model for delay minutes based on when flights depart.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Tableau, SQL, Python, NumPy, Jupyter Notebook
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://docs.google.com/document/d/1VX7lP-DCoNhzUEZZD8jhUVYYTYkMUGUm2VEclU6lbws/edit" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AppHub -->
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-lg border border-white/50 card-hover animate-fade-in">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex justify-center">
+                        <img src="images/apphub.png" alt="AppHub" class="rounded-xl shadow-lg max-w-sm w-full image-hover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-hover">Backend Development for AppHub</h3>
+                        <p class="text-accent-blue font-semibold text-sm uppercase tracking-wider mb-4">November 2023</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            I worked on the backend for a college club application app called AppHub. 
+                            Using what I learned in Intro to Backend Development, I worked on a team of two Backend Developers, two IOS Developers, 
+                            and one Product Designer to develop the app start to finish. I had to plan the SQL schema, code the Backend of the app in Python, design the Postman requests for the IOS Developers, and work
+                            with our designer to create a seamless user interface.
+                        </p>
+                        <div class="bg-blue-50 text-primary-blue px-4 py-2 rounded-full text-sm font-semibold inline-block mb-6">
+                            Skills: Python, Data Fetching, Postman
+                        </div>
+                        <div class="space-x-4">
+                            <a href="https://github.com/mmoon11/hack-challenge/tree/main" class="inline-block bg-primary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-dark-blue transition-colors duration-200">
+                                GitHub Backend
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=51aKJPnO_Zk" class="inline-block bg-white text-primary-blue px-6 py-3 rounded-full font-semibold border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-colors duration-200">
+                                AppHub Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/givngo2.png" alt="GivNGo">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">GivNGo (Founder)</h3>
-            <h5 class="date">Summer 2024</h5>
-            <p class="description">After learning React early in Summer 2024, I spent the final two months using my skills to develop a
-                free resource library for sports graphic designers called GivNGo. I conducted user interviews with designers to find their pain points, and 
-                launched the website at the end of August 2024. Coding the entire website from scratch, I learned Firebase (Firestore, Analytics, Databases), authenticating and
-            signing up users, data fetching and filtering through an API, and UX/UI design techniques. </p>
-                <h5 class="skills">Skills: Product Design, React.js, Firebase, MUI, JavaScript</h5>
-            <button class="whitebutton"><a class="whitea" href="https://givngo.netlify.app/">Website</a></button>
-            <button class="whitebutton2"><a class="whitea" href="https://github.com/katieperlitz1/givngo">GitHub</a></button>
-        </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/pixar.jpg" alt="Pixar">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Pixar Rebrand Project</h3>
-            <h5 class="date">Fall 2024</h5>
-            <p class="description">To learn Adobe Illustrator and Figma, I created a modern rebrand for Pixar, designing a bold, tech-inspired logo and redesigning their website. This passion project let me 
-                explore my love for storytelling and design while learning new skills in branding, typography, and UX/UI design. 
-                I wanted to give Pixar a fresh, updated look that still captures its playful spirit.
-            </p>
-            <h5 class="skills">Skills: Logo Design, UX/UI Design, Branding, Adobe Illustrator, Figma</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.behance.net/gallery/215459863/Pixar-Logo-and-Website-Redesign">Project Presentation</a></button>
-        </div>
-    </div>
-
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/brsn.jpg" alt="BRSN">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Big Red Sports Network</h3>
-            <h5 class="date">Fall 2023-Present</h5>
-            <p class="description">I joined Cornell's Big Red Sports Network fall of 2023, doing graphic design for 
-                their following on Instagram and X. I did designs for sports such as football, hockey, basketball, 
-                field hockey, and wrestling, and loved working with other Cornell students passionate about creative sports media.</p>
-            <h5 class="skills">Skills: Graphic Design, Social Media</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.behance.net/gallery/186990637/Cornell-University-Fall-2023">BRSN Graphics</a></button>
-        </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/hhh-rebrand.jpg" alt="HHH">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Big 4 HHH Lacrosse Club Rebrand</h3>
-            <h5 class="date">March 2024</h5>
-            <p class="description">I dove into branding, logo design, merchandise design and social media content with this rebrand project for a Philadephia Club Lacrosse Team.
-            </p>
-            <h5 class="skills">Skills: Figma, Logo Design, Branding</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.behance.net/gallery/195618503/Big-4-HHH-Rebrand-Concept">Rebrand Presentation</a></button>
-        </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/1917.png" alt="Video Edits">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">After Effects Video Edits</h3>
-            <h5 class="date">Summer 2023-Present</h5>
-            <p class="description">To get comfortable with Adobe After Effects, I pulled clips from my favorite action movies
-                and edited them to music during Summer 2023. I learned the basics of keyframes, time markers, transitions, and combining multiple clips into one composition.
-                I also created a short edit for FCA Maryland Lacrosse using similar techniques, and learned to animate my Photoshop graphics through a Cornell BRSN New Years video.
-            </p>
-            <h5 class="skills">Skills: Adobe After Effects</h5>
-            <button class="whitebutton"><a class="whitea" href="https://vimeo.com/864967566?share=copy">My Favorite Action Scenes</a></button>
-            <button class="whitebutton2"><a class="whitea" href="https://vimeo.com/864966768?share=copy">FCA Edit</a></button>
-            <button class="whitebutton2"><a class="whitea" href="https://vimeo.com/905044530?share=copy">BRSN New Years Motion Graphic</a></button>
-        </div>
-    </div>
-
-    <h2 class="miniprojects">Technical Projects</h2>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/reuse.png" alt="ReUse">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">ReUse Ithaca App Design/Development</h3>
-            <h5 class="date">Spring 2025</h5>
-            <p class="description">While on the Software Development team at Engineers Without Borders, 
-                I helped design and build a mobile app for managing donations and inventory. I created the full UX/UI in Figma, 
-                then learned React Native to implement key components. Our team followed a ticket-based workflow with weekly 
-                meetings to align on progress and design consistency. </p>
-                <h5 class="skills">Skills: Figma, React Native</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.behance.net/gallery/225168519/ReUse-App-UI-Design">App UI Design</a></button>
-        </div>
-    </div>
-
-     <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/ubicomp.png" alt="Ubicomp">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Web-App Sensor Data Visualization Tool</h3>
-            <h5 class="date">Spring 2025</h5>
-            <p class="description">For my Ubiquitous Computing course, I led a semester-long project to build an open-source, 
-                browser-based web app for real-time sensor data visualization. I contributed to the full stack using p5.js, 
-                Node.js, and Python to stream data from Arduino-compatible sensors via Bluetooth, WiFi, or Serial. 
-                The tool is designed to help Ubicomp researchers rapidly prototype and analyze sensor input without any 
-                setup or coding required. </p>
-                <h5 class="skills">Skills: JavaScript, Python, Arduino, Data Visualization</h5>
-            <button class="whitebutton"><a class="whitea" href="https://youtu.be/-YaN8vxHmMo">YouTube Demo</a></button>
-            <button class="whitebutton"><a class="whitea" href="https://drive.google.com/file/d/1G9cNk5hWhUZb5NPf47Y1MqD6M6VoqSoL/view?usp=sharing">Project Proposal</a></button>
-        </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/jeans.png" alt="Jean Catalog">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Jean Catalog Website</h3>
-            <h5 class="date">Spring 2024</h5>
-            <p class="description">For my Design and Programming for the Web class, 
-                I created an interactive, data-driven site via PHP and the MYSQL database for a jean shop in a two-person team. 
-                I learned to process HTTP requests, dynamically render HTML, populate and store web 
-                content in a relational database using SQL, and securely implement 
-                login/logout sessions through server-side scripting. </p>
-                <h5 class="skills">Skills: PHP, SQL, HTML, CSS, JavaScript</h5>
-            <button class="whitebutton"><a class="whitea" href="https://drive.google.com/file/d/1wN2uChr7kR6plpxOkqat5A1ZFbQ8wmFe/view?usp=sharing">Project Zip</a></button>
-        </div>
-    </div>
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/oriereport.png" alt="ORIE Project">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">An Analysis on Flight Delays and Cancellations</h3>
-            <h5 class="date">Spring 2024</h5>
-            <p class="description">To answer questions and create predictions for flight delays in the US, I worked
-                with three other group members to create a report from Kaggle's "Flight Delays and Cancellations" dataset. 
-                I worked with Tableau and SQL to create initial visualizations such as average delays for each airline, and the breakdown of delay type and cause. 
-                I then performed linear regression and forecasting in Python to create a model for delay minutes based on when flights depart.</p>
-                <h5 class="skills">Skills: Tableau, SQL, Python, NumPy, Jupyter Notebook</h5>
-            <button class="whitebutton"><a class="whitea" href="https://docs.google.com/document/d/1VX7lP-DCoNhzUEZZD8jhUVYYTYkMUGUm2VEclU6lbws/edit">Report</a></button>
-        </div>
-    </div>
-
-    <!-- <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/personalsite.png" alt="Personal Website">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Personal Website/Portfolio</h3>
-            <h5 class="date">December 2023</h5>
-            <p class="description">Using HTML, CSS, and Javascript, I designed and coded my own personal website (this one!). 
-                I used knowledge from my Design and Programming for the Web class at Cornell, as well as YouTube tutorials to learn
-                Javascript and interactivity.</p>
-                <h5 class="skills">Skills: HTML, CSS, JavaScript, Figma</h5>
-            <button class="whitebutton"><a class="whitea" href="https://github.com/katieperlitz1/personalwebsite">GitHub Repository</a></button>
-        </div>
-    </div> -->
-
-    <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/apphub.png" alt="AppHub">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Backend Development for AppHub</h3>
-            <h5 class="date">November 2023</h5>
-            <p class="description">I worked on the backend for a college club application app called AppHub. 
-                Using what I learned in Intro to Backend Development, I worked on a team of two Backend Developers, two IOS Developers, 
-                and one Product Designer to develop the app start to finish. I had to plan the SQL schema, code the Backend of the app in Python, design the Postman requests for the IOS Developers, and work
-            with our designer to create a seamless user interface.</p>
-            <h5 class="skills">Skills: Python, Data Fetching, Postman</h5>
-            <button class="whitebutton"><a class="whitea" href="https://github.com/mmoon11/hack-challenge/tree/main">GitHub Backend</a></button>
-            <button class="whitebutton2"><a class="whitea" href="https://www.youtube.com/watch?v=51aKJPnO_Zk">AppHub Demo Video</a></button>
-        </div>
-    </div>
-
-    <!-- <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/figma.png" alt="Figma">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Figma Home Page Design</h3>
-            <h5 class="date">December 2023</h5>
-            <p class="description">To practice and learn Figma, I designed a landing page concept for an Aspen Colorado graphic design business. 
-                I'm looking to do more Figma designs in the future.</p>
-                <h5 class="skills">Skills: Figma</h5>
-            <button class="whitebutton"><a class="whitea" href="https://www.figma.com/files/project/175713546/Team-project?fuid=1315355308229743136">Figma Project</a></button>
-        </div>
-    </div> -->
-
-    <!-- <div class="projectdiv hidden">
-        <figure>
-            <img class="projectpic" src="images/kespergolf.png" alt="Kesper Golf">
-        </figure>
-        <div class="projectdescription">
-            <h3 class="projectheader">Kesper Golf Commits</h3>
-            <h5 class="date">Spring 2023-Present</h5>
-            <p class="description">As a branch of Kesper Design, I created an Instagram page dedicated to college golf commitments, a sport in
-                which players rarely announced commitments through edits in previous years. I've completed over 75 edits for top players and
-                am hoping to grow as the main name in golf graphics. 
-            </p>
-            <button class="whitebutton"><a class="whitea" href="https://www.instagram.com/kespergolfcommits/">Instagram</a></button>
-        </div>
-    </div> -->
-
     </main>
-    <footer>Coded/Designed by Katie Perlitz, 2023</footer>
+
+    <footer class="text-center py-8 text-gray-500 text-sm border-t border-gray-200 mt-16">
+        Coded/Designed by Katie Perlitz, 2023
+    </footer>
 
     <script src="scripts/jquery-3.7.1.js"></script>
-    <script src="scripts/app.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerSpans = hamburger.querySelectorAll('span');
+
+        hamburger.addEventListener('click', function() {
+            // Toggle mobile menu
+            mobileMenu.classList.toggle('hidden');
+            
+            // Animate hamburger icon - simplified approach
+            if (!mobileMenu.classList.contains('hidden')) {
+                // Open animation - simple rotation
+                hamburgerSpans[0].style.transform = 'rotate(45deg) translate(0,8.48px)';
+                hamburgerSpans[1].style.opacity = '0';
+                hamburgerSpans[2].style.transform = 'rotate(-45deg) translate(0,-8.48px)';
+            } else {
+                // Close animation
+                hamburgerSpans[0].style.transform = 'rotate(0deg)';
+                hamburgerSpans[1].style.opacity = '1';
+                hamburgerSpans[2].style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                // Reset hamburger icon
+                hamburgerSpans[0].style.transform = 'rotate(0deg)';
+                hamburgerSpans[1].style.opacity = '1';
+                hamburgerSpans[2].style.transform = 'rotate(0deg)';
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Custom cursor functionality
+        const cursorDot = document.getElementById('cursor-dot');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        
+        // Check if device is mobile/touch
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+        
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Smooth cursor following with requestAnimationFrame - reduced delay
+            function updateCursor() {
+                cursorX += (mouseX - cursorX) * 0.3; // Increased from 0.1 to 0.3 for less delay
+                cursorY += (mouseY - cursorY) * 0.3;
+                
+                cursorDot.style.left = cursorX + 'px';
+                cursorDot.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            // Add hover effect only to clickable elements
+            const clickableElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
+            clickableElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorDot.classList.add('hover');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorDot.classList.remove('hover');
+                });
+            });
+        } else {
+            // Hide cursor on mobile
+            cursorDot.style.display = 'none';
+            // Remove fun-cursor class to show default cursor
+            document.body.classList.remove('fun-cursor');
+        }
+    </script>
 </body>
 
-</html>
+</html> 
