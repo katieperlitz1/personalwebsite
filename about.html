@@ -100,11 +100,17 @@
     }
     .image-hover {
       transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      filter: grayscale(100%);
     }
     .card-hover:hover .image-hover {
       filter: grayscale(0%);
       transform: scale(1.05);
+    }
+    
+    /* Only apply grayscale filter on desktop/non-mobile */
+    @media (min-width: 769px) {
+      .image-hover {
+        filter: grayscale(100%);
+      }
     }
     .text-hover {
       transition: all 0.4s ease;
@@ -118,6 +124,9 @@
     
     /* Disable hover effects on mobile */
     @media (max-width: 768px) {
+      .image-hover {
+        filter: grayscale(0%) !important;
+      }
       .card-hover:hover {
         transform: none;
         box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
