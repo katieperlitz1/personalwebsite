@@ -355,10 +355,10 @@
                 mouseY = e.clientY;
             });
 
-            // Smooth cursor following with requestAnimationFrame - reduced delay
+            // Smooth cursor following with requestAnimationFrame - optimized for responsiveness
             function updateCursor() {
-                cursorX += (mouseX - cursorX) * 0.3; // Increased from 0.1 to 0.3 for less delay
-                cursorY += (mouseY - cursorY) * 0.3;
+                cursorX += (mouseX - cursorX) * 0.9; // Increased from 0.8 to 0.9 for better responsiveness
+                cursorY += (mouseY - cursorY) * 0.9;
                 
                 cursorDot.style.left = cursorX + 'px';
                 cursorDot.style.top = cursorY + 'px';
