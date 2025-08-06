@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Katie Perlitz</title>
+  <link rel="stylesheet" type="text/css" href="styles/site2.css">
+</head>
+
+<body>
+  
+  <header>
+  <!-- Source: (original work) Katie Perlitz -->
+  <picture>
+    <img src="images/logo4.png" alt="">
+  </picture>
+    <nav>
+      <ul>
+        <li class="indexnav"><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="business-projects.html">Business & Projects</a></li>
+        <li class="contactnav"><a href="contact.html">Contact</a></li>
+      </ul>
+        <div class="socials">
+          <picture class="instagram">
+              <a href="https://www.instagram.com/kesperdesign/"><img src="images/instagram-icon2.png" alt="Instagram"></a>
+          </picture>
+          <picture class="linkedin">
+              <a href="https://www.linkedin.com/in/katie-perlitz-7678b5214/"><img src="images/linkedin-icon3.png" alt="LinkedIn"></a>
+          </picture>
+          <picture class="behance">
+              <a href="https://www.behance.net/katieperlitz"><img src="images/behance-icon3.png" alt="Behance"></a>
+          </picture>
+        </div>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </div>
+    </nav>
+    </header>
+
+    <main class="contact">
+      <h2 class="contactheader">Let's get in touch!</h2>
+
+      <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+          <h3 class="sendemail">Send me an Email</h3>
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="text" id="phone" placeholder="Phone Number" >
+          <textarea id="message" rows="4" placeholder="Put Your Message Here!"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+
+
+
+      <div class="general">
+        <h3>General Questions</h3>
+        <p>For my resume, availability, or further questions, please send me an email.</p>
+        <button class="whitebutton2"><a class="email" href="mailto:katieperlitz@gmail.com">Personal Email</a></button>
+      </div>
+      <div class="general">
+        <h3>Professional Work</h3>
+        <p>Need an edit or graphic design work? Please use my business email or message me through my Instagram.</p>
+        <button class="whitebutton2"><a class="busemail" href="mailto:businesskesper@gmail.com">Business Email</a></button>
+        <button class="whitebutton2"><a class="busemail" href="https://www.instagram.com/kesperdesign/">Kesper Design Instagram</a></button>
+        <button class="whitebutton2"><a class="linkedin" href="https://www.linkedin.com/in/katie-perlitz-7678b5214/">LinkedIn</a></button>
+        <p>I look forward to hearing from you!</p>
+       </div>
+
+
+  </main>
+  <footer>Coded/Designed by Katie Perlitz, 2023</footer>
+
+    <script src="scripts/jquery-3.7.1.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        Email.send({
+            SecureToken : "f9946edc-b6dc-49cc-bccb-8ee232bde045",
+            To : 'katieperlitz@gmail.com',
+            From : document.getElementById("email").value,
+            Subject : "New Email from Website Form",
+            Body : "Name:" + document.getElementById("name").value
+            + "<br> Email:" + document.getElementById("email").value
+            + "<br> Phone:" + document.getElementById("phone").value
+            + "<br> Message:" + document.getElementById("message").value
+        }).then(
+          message => alert("Message Sent Successfully")
+        );
+      }
+    </script>
+  
+    
+</body>
+
+</html>
