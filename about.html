@@ -62,35 +62,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .fun-cursor {
-      cursor: none;
-    }
-    .cursor-dot {
-      width: 24px;
-      height: 24px;
-      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.2) 100%);
-      border: 2px solid rgba(255,255,255,0.8);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      backdrop-filter: blur(8px);
-      box-shadow: 
-        0 0 15px rgba(255,255,255,0.4),
-        inset 0 0 15px rgba(255,255,255,0.2);
-      transition: all 0.15s ease-out;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-    }
-    .cursor-dot.hover {
-      width: 36px;
-      height: 36px;
-      background: radial-gradient(circle, rgba(0,69,179,0.4) 0%, rgba(30,136,229,0.3) 60%, rgba(66,165,245,0.2) 100%);
-      border: 2px solid rgba(0,69,179,0.6);
-      box-shadow: 
-        0 0 25px rgba(0,69,179,0.5),
-        inset 0 0 25px rgba(0,69,179,0.2);
-    }
     .card-hover {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -146,8 +117,7 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 font-inter text-gray-800 fun-cursor">
-    <div class="cursor-dot" id="cursor-dot"></div>
+<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 font-inter text-gray-800">
     <header class="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -219,7 +189,7 @@
                     <strong>College basketball</strong> is hands-down my favorite to watch, and I love capturing the energy and hype of big moments through my graphics and videos.
                 </p>
                 <p class="text-gray-600 leading-relaxed">
-                    Lately, I've been training for <strong>Hyrox</strong> races — I competed in my first in Summer 2025 and am gearing up for my next one this winter.
+                    Lately, I've been training for <strong>Hyrox</strong> races. I competed in my first in Summer 2025 and am gearing up for my next one this winter.
                 </p>
             </div>
 
@@ -231,10 +201,10 @@
                     I love learning about businesses as much as I love creating them. In my free time you'll find me reading business books and <strong>listening to podcasts</strong>, exploring investing trends, and obsessing over how AI will shape the future.
                 </p>
                 <p class="text-gray-600 leading-relaxed mb-4">
-                    I've tried a new business almost every year since middle school — eBay, Shopify, selling ads on my viral Insta page — and every project taught me something about building, failing, and iterating.
+                    I've tried a new business almost every year since middle school (eBay, Shopify, selling ads on my viral Instagram page), and every project taught me something about building, failing, and iterating.
                 </p>
                 <p class="text-gray-600 leading-relaxed">
-                    I'm also a member of Epsilon Nu Tau, <strong>Cornell's Entrepreneurship fraternity</strong>, and am building <a href="https://talenttap.lovable.app" class="text-primary-blue font-semibold">TalentTap Cornell</a> this Fall!
+                    I'm also a member of Epsilon Nu Tau, <strong>Cornell's Entrepreneurship fraternity</strong>, and am building <a href="https://talenttapcornell.com" class="text-primary-blue font-semibold">TalentTap Cornell</a> this Fall!
                 </p>
             </div>
 
@@ -389,46 +359,20 @@
         });
 
         // Custom cursor functionality
-        const cursorDot = document.getElementById('cursor-dot');
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-        
-        // Check if device is mobile/touch
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-        
-        if (!isMobile) {
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
+        // REMOVED - cursor functionality disabled per user request
 
-            // Smooth cursor following with requestAnimationFrame - optimized for responsiveness
-            function updateCursor() {
-                cursorX += (mouseX - cursorX) * 0.9; // Increased from 0.8 to 0.9 for better responsiveness
-                cursorY += (mouseY - cursorY) * 0.9;
-                
-                cursorDot.style.left = cursorX + 'px';
-                cursorDot.style.top = cursorY + 'px';
-                
-                requestAnimationFrame(updateCursor);
+        // Testimonial dropdown functionality
+        function toggleTestimonial(id) {
+            const content = document.getElementById(id + '-content');
+            const arrow = document.getElementById(id + '-arrow');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
             }
-            updateCursor();
-
-            // Add hover effect only to clickable elements
-            const clickableElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
-            clickableElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursorDot.classList.add('hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursorDot.classList.remove('hover');
-                });
-            });
-        } else {
-            // Hide cursor on mobile
-            cursorDot.style.display = 'none';
-            // Remove fun-cursor class to show default cursor
-            document.body.classList.remove('fun-cursor');
         }
     </script>
 </body>
