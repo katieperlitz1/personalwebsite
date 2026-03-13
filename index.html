@@ -102,6 +102,26 @@
       }
     }
     
+    .bold-header-hero {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.75rem;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    @media (min-width: 768px) {
+      .bold-header-hero {
+        font-size: 3.25rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .bold-header-hero {
+        font-size: 3.5rem;
+      }
+    }
+    
     .content-container {
       max-width: 900px;
       margin: 0 auto;
@@ -116,25 +136,39 @@
     }
     
     .project-card {
-      transition: all 0.3s ease;
+      transition: box-shadow 0.2s ease-out;
     }
     
     .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
     
     .expandable-card {
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.2s ease-out;
       cursor: pointer;
     }
     
     .expandable-card:hover {
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
     }
     
     .expandable-card.expanded {
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    }
+    
+    .project-card-header {
+      max-height: 200px;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    }
+    
+    .project-card.expanded .project-card-header {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom-width: 0;
     }
     
     .icon-box {
@@ -236,7 +270,7 @@
     <section id="home" class="section min-h-screen flex items-center justify-center py-20">
         <div class="content-container text-center">
             <p class="script-header-large mb-4 animate-fade-in">Hey, I'm Katie 👋</p>
-            <h1 class="bold-header md:text-6xl text-5xl mb-8 animate-fade-in">
+            <h1 class="bold-header-hero mb-8 animate-fade-in">
                 I <span class="font-script !lowercase text-[1.6em] font-medium text-yellow-500">design</span>, 
                 <span class="font-mono !lowercase text-[1.1em] font-medium text-blue-500">code</span>, 
                 and launch ideas I care about
@@ -461,7 +495,7 @@
                                 <h4 class="text-2xl font-bold text-gray-900 mb-2">Digital Template Shop</h4>
                                 <p class="text-gray-500 text-sm mb-4">Spring 2023-Present</p>
                                 <p class="text-gray-600 leading-relaxed mb-4">
-                                    I design and sell Canva and Photoshop templates on Etsy for teams to use as social media graphics. Since starting my store in Spring 2023, I've become a top seller in the sports graphics niche, increased monthly revenue by 400% since August 2023, and sold to over 2000 teams.
+                                    I design and sell Canva and Photoshop templates on Etsy for teams to use as social media graphics. Since starting my store in Spring 2023, I've become a top seller in the sports graphics niche, increased monthly revenue by 400% since August 2023, and sold to over <strong>2500 teams</strong>.
                                 </p>
                                 <div class="flex flex-wrap gap-2 mb-4">
                                     <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">E-Commerce</span>
@@ -576,122 +610,247 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center uppercase">TECHNICAL PROJECTS</h3>
                 <div class="space-y-6">
                     <!-- Spotlight -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg project-card">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">Spotlight — UX/Product Design</h4>
-                                <p class="text-gray-500 text-sm mb-4">Fall 2025</p>
-                                <p class="text-gray-600 leading-relaxed mb-4">
-                                    Spotlight is a mobile platform designed to help student creatives get discovered, showcase their work, and connect with potential clients on campus. In my Human-Computer Interaction course, I conducted research-driven design iterations including heuristic evaluations, usability testing, and user interviews.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Product Design</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">UX Research</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Usability Testing</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Figma</span>
+                    <div class="expandable-card bg-white rounded-2xl shadow-lg project-card overflow-hidden expanded" data-card data-card-trigger>
+                        <div class="card-header flex items-center justify-between gap-5 p-6">
+                            <div class="project-card-header flex items-center gap-5 flex-1 min-w-0">
+                                <div class="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <img src="images/spotlight.png" alt="Spotlight" class="h-full w-full object-cover">
                                 </div>
-                                <div class="flex flex-wrap gap-3">
-                                    <a href="https://www.youtube.com/watch?v=CXcw-jh9bdU" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors">YouTube Demo</a>
-                                    <a href="https://www.figma.com/proto/IK9H7kkzybUuSC2DXtck6t/-A4-Copy--HCI-A5-Group-Assignment?node-id=258-1626&starting-point-node-id=16%3A109&t=ecqcdYcWYT5YUJOm-1" class="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold border-2 border-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Figma Prototype →</a>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-lg font-bold text-gray-900 mb-1 truncate">Spotlight — UX/Product Design</h4>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Product Design</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">UX Research</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Usability Testing</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Figma</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center">
-                                <img src="images/spotlight.png" alt="Spotlight" class="rounded-xl shadow-lg max-w-full">
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="px-6 pb-6 pt-0">
+                                <div class="border-t border-gray-200/60 pt-6">
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div>
+                                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Spotlight — UX/Product Design</h4>
+                                            <p class="text-gray-500 text-sm mb-4">Fall 2025</p>
+                                            <p class="text-gray-600 leading-relaxed mb-4">
+                                                Spotlight is a mobile platform designed to help student creatives get discovered, showcase their work, and connect with potential clients on campus. In my Human-Computer Interaction course, I conducted research-driven design iterations including heuristic evaluations, usability testing, and user interviews.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Product Design</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">UX Research</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Usability Testing</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Figma</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3">
+                                                <a href="https://www.youtube.com/watch?v=CXcw-jh9bdU" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors">YouTube Demo</a>
+                                                <a href="https://www.figma.com/proto/IK9H7kkzybUuSC2DXtck6t/-A4-Copy--HCI-A5-Group-Assignment?node-id=258-1626&starting-point-node-id=16%3A109&t=ecqcdYcWYT5YUJOm-1" class="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold border-2 border-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Figma Prototype →</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <img src="images/spotlight.png" alt="Spotlight" class="rounded-xl shadow-lg max-w-full">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- ReUse App -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg project-card">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div class="order-2 md:order-1 flex justify-center">
-                                <img src="images/reuse.png" alt="ReUse" class="rounded-xl shadow-lg max-w-full">
-                            </div>
-                            <div class="order-1 md:order-2">
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">ReUse Ithaca App Design/Development</h4>
-                                <p class="text-gray-500 text-sm mb-4">Spring 2025</p>
-                                <p class="text-gray-600 leading-relaxed mb-4">
-                                    While on the Software Development team at Engineers Without Borders, I helped design and build a mobile app for managing donations and inventory. I created the full UX/UI in Figma, then learned React Native to implement key components.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Figma</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">React Native</span>
+                    <div class="expandable-card bg-white rounded-2xl shadow-lg project-card overflow-hidden" data-card data-card-trigger>
+                        <div class="card-header flex items-center justify-between gap-5 p-6">
+                            <div class="project-card-header flex items-center gap-5 flex-1 min-w-0">
+                                <div class="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <img src="images/reuse.png" alt="ReUse" class="h-full w-full object-cover">
                                 </div>
-                                <a href="https://www.behance.net/gallery/225168519/ReUse-App-UI-Design" class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors inline-block">App UI Design →</a>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-lg font-bold text-gray-900 mb-1 truncate">ReUse Ithaca App Design/Development</h4>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Figma</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">React Native</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="px-6 pb-6 pt-0">
+                                <div class="border-t border-gray-200/60 pt-6">
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div class="order-2 md:order-1 flex justify-center">
+                                            <img src="images/reuse.png" alt="ReUse" class="rounded-xl shadow-lg max-w-full">
+                                        </div>
+                                        <div class="order-1 md:order-2">
+                                            <h4 class="text-2xl font-bold text-gray-900 mb-2">ReUse Ithaca App Design/Development</h4>
+                                            <p class="text-gray-500 text-sm mb-4">Spring 2025</p>
+                                            <p class="text-gray-600 leading-relaxed mb-4">
+                                                While on the Software Development team at Engineers Without Borders, I helped design and build a mobile app for managing donations and inventory. I created the full UX/UI in Figma, then learned React Native to implement key components.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Figma</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">React Native</span>
+                                            </div>
+                                            <a href="https://www.behance.net/gallery/225168519/ReUse-App-UI-Design" class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors inline-block">App UI Design →</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Ubicomp -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg project-card">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">Web-App Sensor Data Visualization Tool</h4>
-                                <p class="text-gray-500 text-sm mb-4">Spring 2025</p>
-                                <p class="text-gray-600 leading-relaxed mb-4">
-                                    For my Ubiquitous Computing course, I led a semester-long project to build an open-source, browser-based web app for real-time sensor data visualization. I contributed to the full stack using p5.js, Node.js, and Python to stream data from Arduino-compatible sensors.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Python</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Arduino</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Data Visualization</span>
+                    <div class="expandable-card bg-white rounded-2xl shadow-lg project-card overflow-hidden" data-card data-card-trigger>
+                        <div class="card-header flex items-center justify-between gap-5 p-6">
+                            <div class="project-card-header flex items-center gap-5 flex-1 min-w-0">
+                                <div class="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <img src="images/ubicomp.png" alt="Ubicomp" class="h-full w-full object-cover">
                                 </div>
-                                <div class="flex flex-wrap gap-3">
-                                    <a href="https://youtu.be/-YaN8vxHmMo" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors">YouTube Demo</a>
-                                    <a href="https://drive.google.com/file/d/1G9cNk5hWhUZb5NPf47Y1MqD6M6VoqSoL/view?usp=sharing" class="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold border-2 border-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Project Proposal →</a>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-lg font-bold text-gray-900 mb-1 truncate">Web-App Sensor Data Visualization Tool</h4>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">JavaScript</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Python</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Arduino</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Data Visualization</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center">
-                                <img src="images/ubicomp.png" alt="Ubicomp" class="rounded-xl shadow-lg max-w-full">
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="px-6 pb-6 pt-0">
+                                <div class="border-t border-gray-200/60 pt-6">
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div>
+                                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Web-App Sensor Data Visualization Tool</h4>
+                                            <p class="text-gray-500 text-sm mb-4">Spring 2025</p>
+                                            <p class="text-gray-600 leading-relaxed mb-4">
+                                                For my Ubiquitous Computing course, I led a semester-long project to build an open-source, browser-based web app for real-time sensor data visualization. I contributed to the full stack using p5.js, Node.js, and Python to stream data from Arduino-compatible sensors.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Python</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Arduino</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Data Visualization</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3">
+                                                <a href="https://youtu.be/-YaN8vxHmMo" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors">YouTube Demo</a>
+                                                <a href="https://drive.google.com/file/d/1G9cNk5hWhUZb5NPf47Y1MqD6M6VoqSoL/view?usp=sharing" class="bg-white text-gray-900 px-5 py-2 rounded-full text-sm font-semibold border-2 border-blue-500 hover:bg-blue-500 hover:text-white transition-colors">Project Proposal →</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <img src="images/ubicomp.png" alt="Ubicomp" class="rounded-xl shadow-lg max-w-full">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Jean Catalog -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg project-card">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div class="order-2 md:order-1 flex justify-center">
-                                <img src="images/jeans.png" alt="Jean Catalog" class="rounded-xl shadow-lg max-w-full">
-                            </div>
-                            <div class="order-1 md:order-2">
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">Jean Catalog Website</h4>
-                                <p class="text-gray-500 text-sm mb-4">Spring 2024</p>
-                                <p class="text-gray-600 leading-relaxed mb-4">
-                                    For my Design and Programming for the Web class, I created an interactive, data-driven site via PHP and the MYSQL database for a jean shop in a two-person team. I learned to process HTTP requests, dynamically render HTML, populate and store web content in a relational database using SQL.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">PHP</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">SQL</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                    <div class="expandable-card bg-white rounded-2xl shadow-lg project-card overflow-hidden" data-card data-card-trigger>
+                        <div class="card-header flex items-center justify-between gap-5 p-6">
+                            <div class="project-card-header flex items-center gap-5 flex-1 min-w-0">
+                                <div class="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <img src="images/jeans.png" alt="Jean Catalog" class="h-full w-full object-cover">
                                 </div>
-                                <a href="https://drive.google.com/file/d/1wN2uChr7kR6plpxOkqat5A1ZFbQ8wmFe/view?usp=sharing" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors inline-block">Project Zip →</a>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-lg font-bold text-gray-900 mb-1 truncate">Jean Catalog Website</h4>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">PHP</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">SQL</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">HTML</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">CSS</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="px-6 pb-6 pt-0">
+                                <div class="border-t border-gray-200/60 pt-6">
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div class="order-2 md:order-1 flex justify-center">
+                                            <img src="images/jeans.png" alt="Jean Catalog" class="rounded-xl shadow-lg max-w-full">
+                                        </div>
+                                        <div class="order-1 md:order-2">
+                                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Jean Catalog Website</h4>
+                                            <p class="text-gray-500 text-sm mb-4">Spring 2024</p>
+                                            <p class="text-gray-600 leading-relaxed mb-4">
+                                                For my Design and Programming for the Web class, I created an interactive, data-driven site via PHP and the MYSQL database for a jean shop in a two-person team. I learned to process HTTP requests, dynamically render HTML, populate and store web content in a relational database using SQL.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">PHP</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">SQL</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">HTML</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+                                            </div>
+                                            <a href="https://drive.google.com/file/d/1wN2uChr7kR6plpxOkqat5A1ZFbQ8wmFe/view?usp=sharing" class="bg-yellow-400 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold hover:bg-yellow-500 transition-colors inline-block">Project Zip →</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- ORIE Report -->
-                    <div class="bg-white rounded-2xl p-8 shadow-lg project-card">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-900 mb-2">An Analysis on Flight Delays and Cancellations</h4>
-                                <p class="text-gray-500 text-sm mb-4">Spring 2024</p>
-                                <p class="text-gray-600 leading-relaxed mb-4">
-                                    To answer questions and create predictions for flight delays in the US, I worked with three other group members to create a report from Kaggle's "Flight Delays and Cancellations" dataset. I worked with Tableau and SQL to create visualizations and performed linear regression and forecasting in Python.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Tableau</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">SQL</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Python</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">NumPy</span>
-                                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Jupyter Notebook</span>
+                    <div class="expandable-card bg-white rounded-2xl shadow-lg project-card overflow-hidden" data-card data-card-trigger>
+                        <div class="card-header flex items-center justify-between gap-5 p-6">
+                            <div class="project-card-header flex items-center gap-5 flex-1 min-w-0">
+                                <div class="w-20 h-16 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                    <img src="images/oriereport.png" alt="ORIE Project" class="h-full w-full object-cover">
                                 </div>
-                                <a href="https://docs.google.com/document/d/1VX7lP-DCoNhzUEZZD8jhUVYYTYkMUGUm2VEclU6lbws/edit" class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors inline-block">Report →</a>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="text-lg font-bold text-gray-900 mb-1 truncate">An Analysis on Flight Delays and Cancellations</h4>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Tableau</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">SQL</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Python</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">NumPy</span>
+                                        <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-[11px] font-medium">Jupyter Notebook</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex justify-center">
-                                <img src="images/oriereport.png" alt="ORIE Project" class="rounded-xl shadow-lg max-w-full">
+                            <svg class="chevron w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <div class="px-6 pb-6 pt-0">
+                                <div class="border-t border-gray-200/60 pt-6">
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div>
+                                            <h4 class="text-2xl font-bold text-gray-900 mb-2">An Analysis on Flight Delays and Cancellations</h4>
+                                            <p class="text-gray-500 text-sm mb-4">Spring 2024</p>
+                                            <p class="text-gray-600 leading-relaxed mb-4">
+                                                To answer questions and create predictions for flight delays in the US, I worked with three other group members to create a report from Kaggle's "Flight Delays and Cancellations" dataset. I worked with Tableau and SQL to create visualizations and performed linear regression and forecasting in Python.
+                                            </p>
+                                            <div class="flex flex-wrap gap-2 mb-4">
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Tableau</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">SQL</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Python</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">NumPy</span>
+                                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">Jupyter Notebook</span>
+                                            </div>
+                                            <a href="https://docs.google.com/document/d/1VX7lP-DCoNhzUEZZD8jhUVYYTYkMUGUm2VEclU6lbws/edit" class="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-600 transition-colors inline-block">Report →</a>
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <img src="images/oriereport.png" alt="ORIE Project" class="rounded-xl shadow-lg max-w-full">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -754,7 +913,7 @@
                                 <span class="text-xs font-semibold bg-yellow-50 text-yellow-600 px-3 py-1 rounded-full">Summer 2025</span>
                             </div>
                             <p class="text-sm font-semibold text-yellow-500 mb-2">Comcast NBCUniversal · Philadelphia, PA</p>
-                            <p class="text-gray-500 text-sm leading-relaxed">Worked in Flutter mobile development and UX design for an emerging product sprint team Built responsive UI features, integrated an AI backend, and prototyped a Peacock churn-reduction feature presented to leadership.</p>
+                            <p class="text-gray-500 text-sm leading-relaxed">Worked in Flutter mobile development and UX design for an emerging product sprint team. Built responsive UI features, integrated an AI backend, and prototyped a Peacock churn-reduction feature presented to leadership.</p>
                             <div class="flex flex-wrap gap-1.5 mt-3">
                                 <span class="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">Flutter</span>
                                 <span class="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full text-xs">Figma</span>
